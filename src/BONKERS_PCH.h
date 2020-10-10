@@ -23,8 +23,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#ifndef PCH_H
-#define PCH_H
+#ifndef BONKERS_PCH_H
+#define BONKERS_PCH_H
 
 #include <iostream>
 #include <fstream>
@@ -37,6 +37,7 @@ THE SOFTWARE.
 #include <vector>
 #include <map>
 #include <unordered_map>
+#include <chrono>
 
 //3rd party
 #include "Bonkers/Thirdparty/json.hpp"
@@ -47,4 +48,4 @@ namespace Bonkers
 }
 
 
-#endif //PCH_H
+#endif //BONKERS_PCH_H

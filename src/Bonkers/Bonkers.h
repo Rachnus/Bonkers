@@ -26,9 +26,11 @@ THE SOFTWARE.
 #ifndef BONKERS_H
 #define BONKERS_H
 
-#include "PCH.h"
+#include "BONKERS_PCH.h"
 
 #include "IO/IO.h"
 #include "IO/Json.h"
+#include "Other/StringManip.h"
+#include "Other/Time.h"
 
 #endif //BONKERS_H

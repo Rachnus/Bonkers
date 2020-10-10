@@ -23,10 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#ifndef JSON_H
-#define JSON_H
+#ifndef BONKERS_JSON_H
+#define BONKERS_JSON_H
 
-#include "PCH.h"
+#include "BONKERS_PCH.h"
 
 namespace Bonkers
 {
@@ -37,10 +37,10 @@ namespace Bonkers
 
 		class Json
 		{
-			static JsonObj     ToJson(const String& json);
-			static std::string ToString (const JsonObj& json, int indent = -1, const char indent_char = ' ', bool ensure_ascii = false);
+			inline static JsonObj     ToJson(const String& json);
+			inline static std::string ToString (const JsonObj& json, int indent = -1, const char indent_char = ' ', bool ensure_ascii = false);
 		};
 	}
 }
 
-#endif //JSON_H
+#endif //BONKERS_JSON_H
