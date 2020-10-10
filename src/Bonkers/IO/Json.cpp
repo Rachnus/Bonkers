@@ -23,23 +23,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#ifndef BONKERS_IO_H
-#define BONKERS_IO_H
-
 #include "PCH.h"
+#include "Json.h"
 
 namespace Bonkers
 {
-	namespace IO
+	namespace Format
 	{
-		class File
+		JsonObj Json::ToJson(const String& json)
 		{
-		public:
-			static bool ReadRaw(const String& path, String* out, size_t start = 0, size_t end = 0);
-			static bool ReadText(const String& path, String* out);
-		};
-		
+			return nlohmann::json::parse(json);
+		}
+
+		std::string Json::ToString(const JsonObj& json, int indent, const char indent_char, bool ensure_ascii)
+		{
+			return json.dump(indent, indent_char, ensure_ascii);
+		}
 	}
 }
-
-#endif // BONKERS_IO_H

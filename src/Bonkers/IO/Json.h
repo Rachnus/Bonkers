@@ -1,4 +1,4 @@
-/*
+﻿/*
 
 https://github.com/Rachnus/
 MIT License (MIT)
@@ -23,23 +23,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#ifndef BONKERS_IO_H
-#define BONKERS_IO_H
+#ifndef JSON_H
+#define JSON_H
 
 #include "PCH.h"
 
 namespace Bonkers
 {
-	namespace IO
+	namespace Format
 	{
-		class File
+		typedef nlohmann::json JsonObj;
+		typedef nlohmann::json JsonArr;
+
+		class Json
 		{
-		public:
-			static bool ReadRaw(const String& path, String* out, size_t start = 0, size_t end = 0);
-			static bool ReadText(const String& path, String* out);
+			static JsonObj     ToJson(const String& json);
+			static std::string ToString (const JsonObj& json, int indent = -1, const char indent_char = ' ', bool ensure_ascii = false);
 		};
-		
 	}
 }
 
-#endif // BONKERS_IO_H
+#endif //JSON_H
