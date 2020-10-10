@@ -32,14 +32,16 @@ namespace Bonkers
 {
 	namespace Format
 	{
-		typedef nlohmann::json JsonObj;
-		typedef nlohmann::json JsonArr;
-
-		class Json
+		namespace Json
 		{
-			inline static JsonObj     ToJson(const String& json);
-			inline static std::string ToString (const JsonObj& json, int indent = -1, const char indent_char = ' ', bool ensure_ascii = false);
-		};
+			namespace Raw = nlohmann;
+
+			typedef nlohmann::json JsonObj;
+			typedef nlohmann::json JsonArr;
+
+			inline extern JsonObj     ToJson(const String& json);
+			inline extern std::string ToString(const JsonObj& json, int indent = -1, const char indent_char = ' ', bool ensure_ascii = false);
+		}
 	}
 }
 

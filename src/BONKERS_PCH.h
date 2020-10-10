@@ -41,6 +41,7 @@ THE SOFTWARE.
 
 //3rd party
 #include "Bonkers/Thirdparty/json.hpp"
+#include "Bonkers/Thirdparty/tinyxml2.h"
 
 namespace Bonkers
 {

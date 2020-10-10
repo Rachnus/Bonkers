@@ -23,24 +23,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+#ifndef BONKERS_XML_H
+#define BONKERS_XML_H
+
 #include "BONKERS_PCH.h"
-#include "Json.h"
 
 namespace Bonkers
 {
 	namespace Format
 	{
-		namespace Json
+		namespace XML
 		{
-			JsonObj ToJson(const String& json)
-			{
-				return nlohmann::json::parse(json);
-			}
-
-			std::string ToString(const JsonObj& json, int indent, const char indent_char, bool ensure_ascii)
-			{
-				return json.dump(indent, indent_char, ensure_ascii);
-			}
+			using namespace tinyxml2;
+			
+			extern XMLDocument* ToXML(const String& xml);
+			extern std::string ToString(const XMLDocument& xml);
 		}
 	}
 }
+
+#endif //BONKERS_XML_H

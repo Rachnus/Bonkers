@@ -30,6 +30,7 @@ THE SOFTWARE.
 
 #include "IO/IO.h"
 #include "IO/Json.h"
+#include "IO/XML.h"
 #include "Other/StringManip.h"
 #include "Other/Time.h"
 

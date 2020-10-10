@@ -24,22 +24,34 @@ THE SOFTWARE.
 */
 
 #include "BONKERS_PCH.h"
-#include "Json.h"
+#include "XML.h"
 
 namespace Bonkers
 {
 	namespace Format
 	{
-		namespace Json
+		namespace XML
 		{
-			JsonObj ToJson(const String& json)
+			XMLDocument* ToXML(const String& xml)
 			{
-				return nlohmann::json::parse(json);
+				XMLDocument* doc = new XMLDocument();
+				int error = 0;
+				if ((error = doc->Parse(xml.c_str())) != XML_SUCCESS)
+				{
+					printf("Could not load XML - Error: %d\n", error);
+					assert(false);
+					// Error
+					return nullptr;
+				}
+
+				return doc;
 			}
 
-			std::string ToString(const JsonObj& json, int indent, const char indent_char, bool ensure_ascii)
+			std::string ToString(const XMLDocument& xml)
 			{
-				return json.dump(indent, indent_char, ensure_ascii);
+				XMLPrinter print;
+				xml.Print(&print);
+				return print.CStr();
 			}
 		}
 	}
